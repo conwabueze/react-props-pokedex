@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Pokecard from "./Pokecard";
+import "./Pokedex.css";
 
 class Pokedex extends Component {
   static defaultProps = {
@@ -15,14 +16,21 @@ class Pokedex extends Component {
     ],
   };
 
+  zeroPadding(id) {
+    let newId = id + "";
+    if (newId.length === 1) newId = "00" + newId;
+    else if (newId.length === 2) newId = "0" + newId;
+    return newId;
+  }
+
   render() {
-    console.log(this.props.pokemons);
     return (
-      <div>
+      <div className="Pokedex">
         {this.props.pokemons.map((pokemon) => {
           return (
             <Pokecard
-              id={pokemon.id}
+              key={pokemon.id}
+              id={this.zeroPadding(pokemon.id)}
               name={pokemon.name}
               type={pokemon.type}
               base_experience={pokemon.base_experience}
