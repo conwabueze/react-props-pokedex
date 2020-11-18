@@ -1,6 +1,12 @@
-.Pokedex {
+.Pokedex-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
   justify-items: center;
+  margin: 2em 0;
+}
+
+.Pokedex-winner {
+  text-align: center;
+  margin: 5em 0;
 }
